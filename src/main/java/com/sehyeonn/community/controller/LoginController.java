@@ -22,7 +22,7 @@ public class LoginController {
 	@PostMapping("login/login")
 	public String login(Model model, String userId, String password) {
 		String errorMsg = "";
-		User user = userMapper.findPassword(userId);
+		User user = userMapper.findById(userId);
 		
 		if(userId == null || userId.length() == 0) {
 			errorMsg = "Enter your ID";

@@ -35,7 +35,7 @@ public interface PostMapper {
 	
 	
 	// 게시글 아이디로 게시글 하나 조회하는 메소드
-	@Select("SELECT post.id, title, username, content, username, categoryId, DATE_FORMAT(postedDatetime, \'%Y-%m-%d %H:%i\') AS postedDatetime, DATE_FORMAT(updatedDatetime, \'%Y-%m-%d %H:%i\') AS updatedDatetime" +
+	@Select("SELECT post.id, title, username, content, username, categoryId, DATE_FORMAT(postedDatetime, \'%Y-%m-%d %H:%i\') AS postedDatetime, DATE_FORMAT(updatedDatetime, \'%Y-%m-%d %H:%i\') AS updatedDatetime " +
 			"FROM post JOIN user ON post.userId=user.id " +
 			"WHERE post.id=#{postId}")
 	Post findById(int postId);

@@ -15,7 +15,7 @@ public interface CommentMapper {
 	int countCommentByPostID(int postId);
 	
 	// 햐당 게시글의 댓글들을 반환하는 메소드
-	@Select("SELECT comment.id, username, postId, content, DATE_FORMAT(postedDatetime, \\'%Y-%m-%d\\') AS postedDatetime " +
+	@Select("SELECT comment.id, username, postId, content, DATE_FORMAT(postedDatetime, \'%Y-%m-%d\') AS postedDatetime " +
 			"FROM comment JOIN user ON comment.userId=user.id " +
 			"WHERE comment.postId=#{postId}")
 	List<Comment> findAllCommentsByPostId(int postId);

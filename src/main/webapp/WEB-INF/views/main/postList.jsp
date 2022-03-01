@@ -8,7 +8,11 @@
 <body>
 
 <div class="container">
-    <table>
+    <form class="search-post">
+        <input type="text" name="searchText" value="${searchText}"/>
+        <button>search</button>
+    </form>
+    <table class="post-list-table">
         <thead>
             <tr>
                 <th>postID</th>
@@ -20,11 +24,11 @@
         </thead>
         <tbody>
             <c:forEach var="post" items="${posts}">
-                <tr>
+                <tr data-url="postDetail?postId=${post.id}">
                     <td>${post.id}</td>
-                    <td>${post.title} <span>[${numberOfComments}]</span></td>
+                    <td>${post.title}</td>
                     <td>${post.username}</td>
-                    <td>${post.postedDateTime}</td>
+                    <td>${post.postedDatetime}</td>
                     <td>${post.hits}</td>
                 </tr>
             </c:forEach>
@@ -32,5 +36,12 @@
     </table>
 </div>
 
+<script>
+    const posts = document.querySelectorAll("[data-url]");
+    posts.forEach(post => post.addEventListener("click", () => {
+        const url = post.dataset.url;
+        location.href = url;
+    }));
+</script>
 </body>
 </html>

@@ -30,6 +30,7 @@ public class PostListController {
 			model.addAttribute("posts", postList);
 		}
 		
+		model.addAttribute("categories", postMapper.findAllCategory());
 		model.addAttribute("searchText", searchText);
 		model.addAttribute("pageNumber", pageNumber);
 		

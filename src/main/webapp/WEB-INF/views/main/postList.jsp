@@ -8,6 +8,15 @@
 <body>
 
 <div class="container">
+    <div class="category">
+        <ul>
+            <c:forEach var="category" items="${categories}">
+                    <li data-url="postList?categoryId=${category.id}">
+                        <span>${category.name}</span>
+                    </li>
+            </c:forEach>
+        </ul>
+    </div>
     <form class="search-post">
         <input type="text" name="searchText" value="${searchText}"/>
         <button>search</button>
@@ -37,11 +46,16 @@
 </div>
 
 <script>
-    const posts = document.querySelectorAll("[data-url]");
-    posts.forEach(post => post.addEventListener("click", () => {
-        const url = post.dataset.url;
+    const posts = document.querySelectorAll(".post-list-table [data-url]");
+    const categories = document.querySelectorAll(".category [data-url]");
+
+    function hrefHandler(event) {
+        const url = event.currentTarget.dataset.url;
         location.href = url;
-    }));
+    }
+
+    posts.forEach(post => post.addEventListener("click", hrefHandler));
+    categories.forEach(category => category.addEventListener("click", hrefHandler));
 </script>
 </body>
 </html>

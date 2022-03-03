@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import com.sehyeonn.community.dto.Category;
 import com.sehyeonn.community.dto.Post;
 
 @Mapper
@@ -31,5 +32,10 @@ public interface PostMapper {
 			"FROM post JOIN user ON post.userId=user.id " +
 			"WHERE post.id=#{postId}")
 	Post findById(int postId);
+	
+	
+	// 전체 카테고리 조회
+	@Select("SELECT * FROM category")
+	List<Category> findAllCategory();
 
 }

@@ -17,6 +17,7 @@
             </c:forEach>
         </ul>
     </div>
+    <button class="posting"></button>
     <form class="search-post">
         <input type="text" name="searchText" value="${searchText}"/>
         <button>search</button>

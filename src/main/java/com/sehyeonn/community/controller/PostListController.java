@@ -8,12 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.sehyeonn.community.dto.Post;
+import com.sehyeonn.community.mapper.CategoryMapper;
 import com.sehyeonn.community.mapper.PostMapper;
 
 @Controller
 public class PostListController {
 	
 	@Autowired PostMapper postMapper;
+	@Autowired CategoryMapper categoryMapper;
 	
 	@GetMapping("main/postList")	// 선택한 카테고리, 조회 중인 페이지 번호, 검색할 내용을 request parameter 로 받음
 	public String postList(Model model, Integer categoryId, Integer pageNumber, String searchText) {
@@ -30,7 +32,7 @@ public class PostListController {
 			model.addAttribute("posts", postList);
 		}
 		
-		model.addAttribute("categories", postMapper.findAllCategory());
+		model.addAttribute("categories", categoryMapper.findAll());
 		model.addAttribute("searchText", searchText);
 		model.addAttribute("pageNumber", pageNumber);
 		

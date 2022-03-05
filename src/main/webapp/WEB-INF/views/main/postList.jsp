@@ -10,16 +10,16 @@
 <div class="container">
     <div class="category">
         <ul>
-            <c:forEach var="category" items="${categories}">
-                    <li data-url="postList?categoryId=${category.id}">
-                        <span>${category.name}</span>
+            <c:forEach var="category" items="${ categories }">
+                    <li data-url="postList?categoryId=${ category.id }">
+                        <span>${ category.name }</span>
                     </li>
             </c:forEach>
         </ul>
     </div>
-    <button class="posting"></button>
+    <button class="posting">Posting</button>
     <form class="search-post">
-        <input type="text" name="searchText" value="${searchText}"/>
+        <input type="text" name="searchText" value="${ searchText }"/>
         <button>search</button>
     </form>
     <table class="post-list-table">
@@ -33,13 +33,13 @@
             </tr>
         </thead>
         <tbody>
-            <c:forEach var="post" items="${posts}">
-                <tr data-url="postDetail?postId=${post.id}">
-                    <td>${post.id}</td>
-                    <td>${post.title}</td>
-                    <td>${post.username}</td>
-                    <td>${post.postedDatetime}</td>
-                    <td>${post.hits}</td>
+            <c:forEach var="post" items="${ posts }">
+                <tr data-url="postDetail?postId=${ post.id }">
+                    <td>${ post.id }</td>
+                    <td>${ post.title }</td>
+                    <td>${ post.username }</td>
+                    <td>${ post.postedDatetime }</td>
+                    <td>${ post.hits }</td>
                 </tr>
             </c:forEach>
         </tbody>

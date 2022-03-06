@@ -17,7 +17,9 @@
             </c:forEach>
         </ul>
     </div>
-    <button class="posting">Posting</button>
+    <a href="posting?categoryId=${ categoryId }">
+    	<button class="posting">Posting</button>
+    </a>
     <form class="search-post">
         <input type="text" name="searchText" value="${ searchText }"/>
         <button>search</button>

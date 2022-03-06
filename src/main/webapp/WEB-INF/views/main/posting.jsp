@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,23 +9,23 @@
 <body>
 
 <div class="container">
-    <form method="post">
+    <form:form method="POST" modelAttribute="newPost">
 	    <h1>Posting</h1>
-	    <select name="categoryId">
+	    <form:select path="categoryId">
 	    	<option>All</option>
 	    	<c:forEach var="category" items="${ categories }">
 	    		<option value="${ category.id }" ${ category.id == selectedCategory ? "selected" : "" }>${ category.name }</option>
 	    	</c:forEach>
-	    </select>
+	    </form:select>
     	<div>
     		<label>Title</label>
-    		<input type="text" name="title">
+    		<form:input path="title"/>
     	</div>
-    	<div>    	
-    		<input type="text" name="content">
+    	<div>
+    		<form:textarea path="content"/>
     	</div>
     	<button type="submit" class="btn">Post</button>
-    </form>
+    </form:form>
 </div>
 
 </body>

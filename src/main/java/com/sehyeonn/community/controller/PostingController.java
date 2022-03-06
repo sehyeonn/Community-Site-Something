@@ -23,6 +23,8 @@ public class PostingController {
 		} else {
 			model.addAttribute("selectedCategory", categoryId);
 		}
+		Post newPost = new Post();
+		model.addAttribute("newPost", newPost);
 		model.addAttribute("categories", categoryMapper.findAll());
 		return "main/posting";
 	}

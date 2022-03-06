@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.sehyeonn.community.dto.Comment;
 import com.sehyeonn.community.mapper.CommentMapper;
 import com.sehyeonn.community.mapper.PostMapper;
 
@@ -22,6 +23,10 @@ public class PostDetailController {
 		model.addAttribute("post", postMapper.findById(postId));
 		model.addAttribute("numberOfComments", commentMapper.countCommentByPostID(postId));
 		model.addAttribute("comments", commentMapper.findAllCommentsByPostId(postId));
+		
+		Comment newComment = new Comment();
+		model.addAttribute("newComment", newComment);
+		
 		return "main/postDetail";
 	}
 

@@ -4,8 +4,14 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="/resources/css/frame.css" type="text/css">
 </head>
 <body>
+
+<header>
+    <a href="postList" class="main-link">COMMUNITY SITE SOMETHING</a>
+    <span>myPage</span>
+</header>
 
 <div class="container">
     <div class="category">

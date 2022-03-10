@@ -1,3 +1,75 @@
 header {
     background-color: darkgray;
+
+}
+
+header a, 
+header span {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+
+header div,
+.container {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container {
+    border: 2px solid gray;
+    border-top: none;
+}
+
+.container>* {
+    padding: 10px;
+}
+
+a.posting {
+    display: block;
+}
+
+.category,
+.post-list-table {
+    width: 100%;
+}
+
+/* category */
+.category ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+}
+.category li {
+    flex: 1;
+    display: inline-block;
+    text-align: center;
+}
+
+/* post list */
+.post-id {
+    text-align: center;
+    width: 80px;
+}
+.date {
+    text-align: center;
+    width: 100px;
+}
+.hits {
+    text-align: center;
+    width: 50px;
+}
+.post-title {
+    text-align: left;
+}
+.author {
+    text-align: left;
+    width: 110px;
+}
+
+/* search form */
+.search-post {
+    text-align: right;
 }

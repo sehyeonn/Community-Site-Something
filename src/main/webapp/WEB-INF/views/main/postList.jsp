@@ -9,11 +9,16 @@
 <body>
 
 <header>
-    <a href="postList" class="main-link">COMMUNITY SITE SOMETHING</a>
-    <span>myPage</span>
+    <div>
+        <a href="postList" class="main-link">COMMUNITY SITE SOMETHING</a>
+        <span>myPage</span>
+    </div>
 </header>
 
 <div class="container">
+    <a href="posting?categoryId=${ categoryId }" class="posting">
+        <button class="posting-btn">Posting</button>
+    </a>
     <div class="category">
         <ul>
             <c:forEach var="category" items="${ categories }">
@@ -23,35 +28,32 @@
             </c:forEach>
         </ul>
     </div>
-    <a href="posting?categoryId=${ categoryId }">
-    	<button class="posting">Posting</button>
-    </a>
-    <form class="search-post">
-        <input type="text" name="searchText" value="${ searchText }"/>
-        <button>search</button>
-    </form>
     <table class="post-list-table">
         <thead>
             <tr>
-                <th>postID</th>
-                <th>title</th>
-                <th>author</th>
-                <th>date</th>
-                <th>hits</th>
+                <th class="post-id">postID</th>
+                <th class="post-title">title</th>
+                <th class="author">author</th>
+                <th class="date">date</th>
+                <th class="hits">hits</th>
             </tr>
         </thead>
         <tbody>
             <c:forEach var="post" items="${ posts }">
                 <tr data-url="postDetail?postId=${ post.id }">
-                    <td>${ post.id }</td>
-                    <td>${ post.title }</td>
-                    <td>${ post.username }</td>
-                    <td>${ post.postedDatetime }</td>
-                    <td>${ post.hits }</td>
+                    <td class="post-id">${ post.id }</td>
+                    <td class="post-title">${ post.title }</td>
+                    <td class="author">${ post.username }</td>
+                    <td class="date">${ post.postedDatetime }</td>
+                    <td class="hits">${ post.hits }</td>
                 </tr>
             </c:forEach>
         </tbody>
     </table>
+    <form class="search-post">
+        <input type="text" name="searchText" value="${ searchText }"/>
+        <button>search</button>
+    </form>
 </div>
 
 <script>

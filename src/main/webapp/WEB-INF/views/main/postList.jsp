@@ -5,6 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="/resources/css/frame.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/postList.css" type="text/css">
 </head>
 <body>
 
@@ -16,9 +17,11 @@
 </header>
 
 <div class="container">
-    <a href="posting?categoryId=${ categoryId }" class="posting">
-        <button class="posting-btn">Posting</button>
-    </a>
+    <div class="buttons">
+        <a href="posting?categoryId=${ categoryId }" class="posting">
+            <button class="posting-btn">Posting</button>
+        </a>
+    </div>
     <div class="category">
         <ul>
             <c:forEach var="category" items="${ categories }">
@@ -40,7 +43,7 @@
         </thead>
         <tbody>
             <c:forEach var="post" items="${ posts }">
-                <tr data-url="postDetail?postId=${ post.id }">
+                <tr class="post" data-url="postDetail?postId=${ post.id }">
                     <td class="post-id">${ post.id }</td>
                     <td class="post-title">${ post.title }</td>
                     <td class="author">${ post.username }</td>
@@ -50,10 +53,12 @@
             </c:forEach>
         </tbody>
     </table>
-    <form class="search-post">
-        <input type="text" name="searchText" value="${ searchText }"/>
-        <button>search</button>
-    </form>
+    <div class="search-post-div">
+        <form class="search-post">
+            <input type="text" name="searchText" value="${ searchText }"/>
+            <button>search</button>
+        </form>
+    </div>
 </div>
 
 <script>

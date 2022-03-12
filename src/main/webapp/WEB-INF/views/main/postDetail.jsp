@@ -5,38 +5,54 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="/resources/css/frame.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/postDetail.css" type="text/css">
 </head>
 <body>
+
+<header>
+    <div>
+        <a href="postList" class="main-link">COMMUNITY SITE SOMETHING</a>
+        <span>myPage</span>
+    </div>
+</header>    
 
 <div class="container">
     <div>
         <h2>${post.title}</h2>
-        <div>
+        <div class="post-info">
             <span>${post.username}</span>
-            <span>${post.postedDatetime}</span>
-            <span>comments ${numberOfComments}</span>
-            <span>hits ${post.hits}</span>
+            <span>
+                ${post.postedDatetime} |
+                comments ${numberOfComments} |
+                hits ${post.hits}
+            </span>
         </div>
-        <div>
+        <div class="post-content">
             ${post.content}
         </div>
 
-        <div>
+        <div class="comments">
+            <div>Comments</div>
             <ul>
                 <c:forEach var="comment" items="${comments}">
                     <li>
-                        <span>${comment.username}</span>
-                        <span>${comment.postedDatetime}</span>
-                        <div>${comment.content}</div>
+                        <div class="comment-info">
+                            <span>${comment.username}</span>
+                            <span>${comment.postedDatetime}</span>
+                        </div>
+                        <div class="comment-content">${comment.content}</div>
                     </li>
                 </c:forEach>
             </ul>
         </div>
         
         <form:form method="POST" modelAttribute="newComment">
-        	<h2>Post a comment</h2>
+        	<div>
+                <span>Post a comment</span>
+                <button type="submit">Post</button>
+            </div>
         	<form:textarea path="content"/>
-        	<button type="submit">Post</button>
         </form:form>
     </div>
 </div>

@@ -1,0 +1,74 @@
+.buttons {
+    text-align: right;
+}
+
+/* category */
+.category {
+    padding-top: 0;
+}
+.category ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+.category li {
+    flex: 1;
+    display: inline-block;
+
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    
+    text-align: center;
+    
+    background-color: #eee;
+    padding: 5px;
+}
+.category li:hover {
+    background-color: darkgray;
+    color: white;
+    cursor: pointer;
+}
+
+/* post list */
+.post-list-table {
+    width: 100%;
+    padding-top: 0;
+}
+.post-list-table th,
+.post-list-table td {
+    padding: 5px;
+}
+.post:hover {
+    cursor: pointer;
+    background-color: #eee;
+}
+.post-id {
+    text-align: center;
+    width: 80px;
+}
+.date {
+    text-align: center;
+    width: 100px;
+}
+.hits {
+    text-align: center;
+    width: 50px;
+}
+.post-title {
+    text-align: left;
+}
+.author {
+    text-align: left;
+    width: 110px;
+}
+
+/* search form */
+div.search-post-div {
+    padding-top: 0;
+}
+.search-post {
+    text-align: right;
+    border-top: 1px solid gray;
+    padding-top: 10px;
+}

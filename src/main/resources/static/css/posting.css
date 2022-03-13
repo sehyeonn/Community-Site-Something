@@ -1,0 +1,65 @@
+h2 {
+    border: 1px solid gray;
+    border-left: none;
+    border-right: none;
+
+    padding: 7px;
+    padding-left: 10px;
+    margin-bottom: 0;
+}
+
+form {
+    text-align: right;
+}
+
+div.radios {
+    padding: 10px;
+    margin-top: 10px;
+}
+.radio input {
+    display: none;
+}
+.radio input + span {
+    background: none;
+    padding: 5px;
+    cursor: pointer;
+}
+.radio input:checked + span {
+    background-color: darkgray;
+    color: white;
+}
+.radio span:hover {
+    border: 2px solid darkgray;
+    padding: 3px;
+}
+
+div.write-title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.write-title label {
+    border: 1px solid gray;
+    padding: 5px;
+    vertical-align: middle;
+}
+.write-title input {
+    border: 1px solid gray;
+
+    width: 715px;
+    height: 30px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+.write-title input:focus {
+    outline: none;
+}
+
+textarea {
+    border: 1px solid gray;
+    padding: 15px;
+    width: 747px;
+    height: 300px;
+}
+textarea:focus {
+    outline: none;
+}

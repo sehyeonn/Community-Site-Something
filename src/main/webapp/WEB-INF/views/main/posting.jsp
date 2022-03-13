@@ -30,7 +30,7 @@
 					</label>
 				</c:forEach>
 			</div>
-			<div>
+			<div class="write-title">
 				<label>Title</label>
 				<form:input path="title"/>
 			</div>

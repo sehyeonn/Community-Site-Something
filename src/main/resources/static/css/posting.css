@@ -45,7 +45,7 @@ div.write-title {
 .write-title input {
     border: 1px solid gray;
 
-    width: 715px;
+    width: 915px;
     height: 30px;
     padding-left: 7px;
     padding-right: 7px;
@@ -57,7 +57,7 @@ div.write-title {
 textarea {
     border: 1px solid gray;
     padding: 15px;
-    width: 747px;
+    width: 947px;
     height: 300px;
 }
 textarea:focus {

@@ -72,3 +72,6 @@ div.search-post-div {
     border-top: 1px solid gray;
     padding-top: 10px;
 }
+.search-post input {
+	height: 23px;
+}

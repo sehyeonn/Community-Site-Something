@@ -71,8 +71,11 @@ form#newComment div {
     justify-content: space-between;
     padding: 10px;
 }
+form#newComment span {
+	font-size: 14pt;
+}
 form#newComment textarea#content {
-    width: 744px;
+    width: 944px;
     margin: 10px;
     margin-top: 0;
     padding: 7px;

@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="/resources/css/frame.css" type="text/css">
+    <link rel="stylesheet" href="/resources/css/login.css" type="text/css">
 </head>
 <body>
 
@@ -12,8 +14,8 @@
         <input type="text" placeholder="E-mail" name="userId" value="${userId}"/>
         <input type="password" placeholder="Password" name="password"/>
         <button type="submit">Log In</button>
+	    <div>${errorMsg}</div>
     </form>
-    <div>${errorMsg}</div>
 </div>
 
 </body>

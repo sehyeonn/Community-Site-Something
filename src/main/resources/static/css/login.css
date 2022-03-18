@@ -31,7 +31,11 @@ button {
 	font-size: 17pt;
 }
 
-form div {
+.error-message {
 	padding: 25px;
 	color: red;
+}
+
+.signup {
+	
 }

@@ -13,9 +13,9 @@
         <h1>Community Site Something</h1>
         <input type="text" placeholder="E-mail" name="userId" value="${userId}"/>
         <input type="password" placeholder="Password" name="password"/>
-        <button type="submit">Log In</button>
-	    <div class="error-message">${errorMsg}</div>
-	    <div class=signup>Don't you have an account? <a href="signup">Sign Up</a></div>
+        <input type="password" placeholder="Confirm Password" name="confirmPassword"/>
+        <button type="submit">Sign Up</button>
+	    <div>${errorMsg}</div>
     </form>
 </div>
 

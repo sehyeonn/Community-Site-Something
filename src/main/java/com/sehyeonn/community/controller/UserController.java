@@ -10,7 +10,7 @@ import com.sehyeonn.community.dto.User;
 import com.sehyeonn.community.mapper.UserMapper;
 
 @Controller
-public class LoginController {
+public class UserController {
 	
 	@Autowired UserMapper userMapper;
 	
@@ -37,5 +37,10 @@ public class LoginController {
 		}
 		model.addAttribute("errorMsg", errorMsg);
 		return "login/login";
+	}
+	
+	@GetMapping("login/signup")
+	public String signup(Model model) {
+		return "login/signup";
 	}
 }

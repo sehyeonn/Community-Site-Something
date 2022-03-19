@@ -15,7 +15,7 @@
         <input type="password" placeholder="Password" name="password"/>
         <input type="password" placeholder="Confirm Password" name="confirmPassword"/>
         <button type="submit">Sign Up</button>
-	    <div>${errorMsg}</div>
+	    <div class="error-message">${errorMsg}</div>
     </form>
 </div>
 

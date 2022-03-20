@@ -11,7 +11,7 @@
 <div class="container">
     <div>
 		<span>Sign up Successful, please log in.</span>
-        <button type="submit">Log In</button>
+        <button type="submit"><a href="login" class="login-link">Log In</a></button>
     </div>
 </div>
 

@@ -1,5 +1,7 @@
 package com.sehyeonn.community.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,6 +38,7 @@ public class UserController {
 		} else {
 			return "redirect:/test/index";	// 임시로 설정해 놓은 뷰, 메인페이지가 생기면 바꿀 것
 		}
+		model.addAttribute(userId, userId);
 		model.addAttribute("errorMsg", errorMsg);
 		return "login/login";
 	}
@@ -46,7 +49,7 @@ public class UserController {
 	}
 	
 	@PostMapping("login/signup")
-	public String signup(Model model, String userId, String password, String confirmPassword) {
+	public String signup(Model model, String userId, String password, String confirmPassword, String username) {
 		String errorMsg = "";
 		
 		if(userId == null || userId.length() == 0) {
@@ -56,8 +59,18 @@ public class UserController {
 		} else if(confirmPassword.equals(password) == false) {
 			errorMsg = "The password doesn\'t match";
 		} else {
-			return "redirect:signupSuccessful";
+			// 새로운 유저 생성 및 데이터베이스에 저장
+			User newUser = new User();
+			newUser.setId(userId);
+			newUser.setPassword(password);
+			newUser.setUsername(username);
+			newUser.setSignupDate(new Date());
+			userMapper.insert(newUser);
+			
+			return "redirect:signupSuccessful";	// 회원가입 성공 페이지로 이동
 		}
+		model.addAttribute(userId, userId);
+		model.addAttribute(username, username);
 		model.addAttribute("errorMsg", errorMsg);
 		return "login/signup";
 	}

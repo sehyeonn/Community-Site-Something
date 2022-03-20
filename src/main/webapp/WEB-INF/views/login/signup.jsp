@@ -9,9 +9,10 @@
 <body>
 
 <div class="container">
-    <form method="post">
+    <form method="post" class="signup">
         <h1>Community Site Something</h1>
         <input type="text" placeholder="E-mail" name="userId" value="${userId}"/>
+        <input type="text" placeholder="Username" name="username" value="${username}"/>
         <input type="password" placeholder="Password" name="password"/>
         <input type="password" placeholder="Confirm Password" name="confirmPassword"/>
         <button type="submit">Sign Up</button>

@@ -1,13 +1,15 @@
 package com.sehyeonn.community.dto;
 
+import java.util.Date;
+
 public class Post {
 	int id;				// NOT NULL
 	String userId;		// Default : Unknown user
 	int categoryId;		// Null able
 	String title;		// NOT NULL
 	String content;		// NOT NULL
-	String postedDatetime;		// NOT NULL
-	String updatedDatetime;		// Null able
+	Date postedDatetime;		// NOT NULL
+	Date updatedDatetime;		// Null able
 	int hits;		// Default : 0
 	
 	String username;
@@ -52,19 +54,19 @@ public class Post {
 		this.content = content;
 	}
 
-	public String getPostedDatetime() {
+	public Date getPostedDatetime() {
 		return postedDatetime;
 	}
 
-	public void setPostedDatetime(String postedDatetime) {
+	public void setPostedDatetime(Date postedDatetime) {
 		this.postedDatetime = postedDatetime;
 	}
 
-	public String getUpdatedDatetime() {
+	public Date getUpdatedDatetime() {
 		return updatedDatetime;
 	}
 
-	public void setUpdatedDatetime(String updatedDatetime) {
+	public void setUpdatedDatetime(Date updatedDatetime) {
 		this.updatedDatetime = updatedDatetime;
 	}
 

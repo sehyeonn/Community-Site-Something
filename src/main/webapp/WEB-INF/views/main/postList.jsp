@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +48,7 @@
                     <td class="post-id">${ post.id }</td>
                     <td class="post-title">${ post.title }</td>
                     <td class="author">${ post.username }</td>
-                    <td class="date">${ post.postedDatetime }</td>
+                    <td class="date"><fmt:formatDate value="${ post.postedDatetime }" pattern="yyyy-MM-dd hh:mm"/></td>
                     <td class="hits">${ post.hits }</td>
                 </tr>
             </c:forEach>

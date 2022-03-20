@@ -1,11 +1,12 @@
 package com.sehyeonn.community.dto;
 
+import java.util.Date;
+
 public class User {
 	String id;			// NOT NULL
 	String password;	// NOT NULL
 	String username;	// NOT NULL
-	String signupDate;	// NOT NULL
-	String resentVisitDate;		// NOT NULL
+	Date signupDate;	// NOT NULL
 
 	public String getId() {
 		return id;
@@ -31,19 +32,12 @@ public class User {
 		this.username = username;
 	}
 
-	public String getSignupDate() {
+	public Date getSignupDate() {
 		return signupDate;
 	}
 
-	public void setSignupDate(String signupDate) {
+	public void setSignupDate(Date signupDate) {
 		this.signupDate = signupDate;
 	}
 
-	public String getResentVisitDate() {
-		return resentVisitDate;
-	}
-
-	public void setResentVisitDate(String resentVisitDate) {
-		this.resentVisitDate = resentVisitDate;
-	}
 }

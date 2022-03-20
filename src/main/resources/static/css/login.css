@@ -42,3 +42,12 @@ span {
 	font-size: 40px;
 	padding: 150px;
 }
+
+a.login-link {
+	text-decoration: none;
+	color: black;
+}
+
+form.signup {
+	margin-top: 25px;
+}

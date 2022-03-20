@@ -49,7 +49,7 @@
 }
 .date {
     text-align: center;
-    width: 100px;
+    width: 130px;
 }
 .hits {
     text-align: center;
@@ -60,7 +60,7 @@
 }
 .author {
     text-align: left;
-    width: 110px;
+    width: 100px;
 }
 
 /* search form */

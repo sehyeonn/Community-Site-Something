@@ -2,6 +2,8 @@ package com.sehyeonn.community.controller;
 
 import java.util.Date;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +25,7 @@ public class UserController {
 	}
 	
 	@PostMapping("login/login")
-	public String login(Model model, String userId, String password) {
+	public String login(Model model, String userId, String password, HttpSession session) {
 		String errorMsg = "";
 		User user = userMapper.findById(userId);
 		
@@ -36,7 +38,8 @@ public class UserController {
 		} else if(user.getPassword().equals(password) == false) {
 			errorMsg = "The password doesn\'t match";
 		} else {
-			return "redirect:/test/index";	// 임시로 설정해 놓은 뷰, 메인페이지가 생기면 바꿀 것
+			session.setAttribute("user", user);	// 세션에 로그인한 유저 저장
+			return "redirect:/main/postList";	// 임시로 설정해 놓은 뷰, 메인페이지가 생기면 바꿀 것
 		}
 		model.addAttribute(userId, userId);
 		model.addAttribute("errorMsg", errorMsg);

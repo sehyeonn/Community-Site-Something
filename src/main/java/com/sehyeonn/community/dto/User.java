@@ -5,6 +5,7 @@ import java.util.Date;
 public class User {
 	String id;			// NOT NULL
 	String password;	// NOT NULL
+	String salt;		// NOT NULL
 	String username;	// NOT NULL
 	Date signupDate;	// NOT NULL
 
@@ -22,6 +23,14 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
 	}
 
 	public String getUsername() {

@@ -1,9 +1,9 @@
 package com.sehyeonn.community.dto;
 
 public class Category {
-	int id;			// NOT NULL
-	String name;	// NOT NULL
-	String createdDate;		//NOT NULL
+	private int id;			// NOT NULL
+	private String name;	// NOT NULL
+	private String createdDate;		//NOT NULL
 
 	public int getId() {
 		return id;

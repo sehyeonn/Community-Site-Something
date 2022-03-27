@@ -3,16 +3,16 @@ package com.sehyeonn.community.dto;
 import java.util.Date;
 
 public class Post {
-	int id;				// NOT NULL
-	String userId;		// Default : Unknown user
-	int categoryId;		// Null able
-	String title;		// NOT NULL
-	String content;		// NOT NULL
-	Date postedDatetime;		// NOT NULL
-	Date updatedDatetime;		// Null able
-	int hits;		// Default : 0
+	private int id;				// NOT NULL
+	private String userId;		// Default : Unknown user
+	private Integer categoryId;		// Null able
+	private String title;		// NOT NULL
+	private String content;		// NOT NULL
+	private Date postedDatetime;		// NOT NULL
+	private Date updatedDatetime;		// Null able
+	private int hits;		// Default : 0
 	
-	String username;
+	private String username;
 
 	public int getId() {
 		return id;

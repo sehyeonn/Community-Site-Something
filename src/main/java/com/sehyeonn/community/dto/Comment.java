@@ -1,14 +1,14 @@
 package com.sehyeonn.community.dto;
 
 public class Comment {
-	int id;				// NOT NULL
-	String userId;		// Default : Unknown user
-	int postId;			// NOT NULL
-	String content;		// NOT NULL
-	String postedDatetime;	// NOT NULL
+	private int id;				// NOT NULL
+	private String userId;		// Default : Unknown user
+	private int postId;			// NOT NULL
+	private String content;		// NOT NULL
+	private String postedDatetime;	// NOT NULL
 	
-	String username;
-	String postTitle;
+	private String username;
+	private String postTitle;
 
 	public int getId() {
 		return id;

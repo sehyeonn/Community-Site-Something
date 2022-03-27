@@ -3,11 +3,11 @@ package com.sehyeonn.community.dto;
 import java.util.Date;
 
 public class User {
-	String id;			// NOT NULL
-	String password;	// NOT NULL
-	String salt;		// NOT NULL
-	String username;	// NOT NULL
-	Date signupDate;	// NOT NULL
+	private String id;			// NOT NULL
+	private String password;	// NOT NULL
+	private String salt;		// NOT NULL
+	private String username;	// NOT NULL
+	private Date signupDate;	// NOT NULL
 
 	public String getId() {
 		return id;

@@ -1,6 +1,9 @@
 package com.sehyeonn.community.controller;
 
+import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sehyeonn.community.dto.Comment;
 import com.sehyeonn.community.dto.Post;
+import com.sehyeonn.community.dto.User;
 import com.sehyeonn.community.mapper.CategoryMapper;
 import com.sehyeonn.community.mapper.CommentMapper;
 import com.sehyeonn.community.mapper.PostMapper;
@@ -70,16 +74,31 @@ public class PostController {
 		} else {
 			model.addAttribute("selectedCategory", categoryId);
 		}
-		Post newPost = new Post();
-		model.addAttribute("newPost", newPost);
 		model.addAttribute("categories", categoryMapper.findAll());
 		return "main/posting";
 	}
 	
 	// 게시글 DB에 등록
 	@PostMapping("main/posting")
-	public String posting(Model model, Post post) {
-		return "main/posting";
+	public String posting(Model model, Integer categoryId, String title, String content, HttpSession session) {
+		String userId = ((User)session.getAttribute("user")).getId();
+		
+		// 새로운 게시글 생성
+		Post newPost = new Post();
+		if(categoryId != null)
+			newPost.setCategoryId(categoryId);
+		newPost.setTitle(title);
+		newPost.setContent(content);
+		newPost.setUserId(userId);	// session에서 현재 로그인 중인 유저 정보를 가져와 작성자로 설정
+		newPost.setPostedDatetime(new Date());
+		
+		postMapper.insert(newPost);	// DB에 게시글 등록
+		System.out.println(userId + " 게시글 DB 등록 완료");
+		
+		if(categoryId == null)
+			return "redirect:postList?categoryId=";
+		else
+			return "redirect:postList?categoryId=" + categoryId;
 	}
 
 }

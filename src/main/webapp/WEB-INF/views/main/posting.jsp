@@ -20,27 +20,32 @@
 <div class="container">
 	<div>
 		<h2>Posting</h2>
-		<form:form method="POST" modelAttribute="newPost">
+		<form method="POST">
 			<div class="radios">
-				<label class="radio"><form:radiobutton path="categoryId"/><span>All</span></label>
+				<label class="radio"><input type="radio" name="categoryId" ${ selectedCategory == null ? 'checked' : '' }><span>All</span></label>
 				<c:forEach var="category" items="${ categories }">
 					<label class="radio">
-						<form:radiobutton path="categoryId" value="${ category.id }" checked="${ category.id == selectedCategory ? 'checked' : '' }"/>
+						<input type="radio" name="categoryId" value="${ category.id }" ${ category.id == selectedCategory ? 'checked' : '' }>
 						<span>${ category.name }</span>
 					</label>
 				</c:forEach>
 			</div>
 			<div class="write-title">
 				<label>Title</label>
-				<form:input path="title"/>
+				<input type="text" name="title">
 			</div>
 			<div>
-				<form:textarea path="content"/>
+				<textarea name="content"></textarea>
 			</div>
 			<button type="submit" class="btn">Post</button>
-		</form:form>
+		</form>
 	</div>
 </div>
+
+<script>
+	const radios = document.querySelectorAll(input[type="radio"]);
+	radios.forEach(radio => radio.addEventListener("click", ))
+</script>
 
 </body>
 </html>

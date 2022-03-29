@@ -30,7 +30,7 @@ public class Post {
 		this.userId = userId;
 	}
 
-	public int getCategoryId() {
+	public Integer getCategoryId() {
 		return categoryId;
 	}
 

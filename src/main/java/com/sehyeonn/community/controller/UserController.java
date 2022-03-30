@@ -20,11 +20,12 @@ public class UserController {
 	
 	@Autowired UserMapper userMapper;
 	
+	// 로그인 페이지
 	@GetMapping("login/login")
 	public String login(Model model) {
 		return "login/login";
 	}
-	
+	// 로그인
 	@PostMapping("login/login")
 	public String login(Model model, String userId, String password, HttpSession session) {
 		String errorMsg = "";
@@ -52,12 +53,12 @@ public class UserController {
 		model.addAttribute("errorMsg", errorMsg);
 		return "login/login";
 	}
-	
+	// 회원가입 페이지
 	@GetMapping("login/signup")
 	public String signup(Model model) {
 		return "login/signup";
 	}
-	
+	// 회원 DB 등록
 	@PostMapping("login/signup")
 	public String signup(Model model, String userId, String password, String confirmPassword, String username) {
 		String errorMsg = "";
@@ -93,6 +94,7 @@ public class UserController {
 		return "login/signup";
 	}
 	
+	// 로그인 성공 페이지
 	@RequestMapping("login/signupSuccessful")
 	public String signupSuccessful(Model model) {
 		return "login/signupSuccessful";

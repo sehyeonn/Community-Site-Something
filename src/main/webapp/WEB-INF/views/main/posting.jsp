@@ -22,7 +22,7 @@
 		<h2>Posting</h2>
 		<form method="POST">
 			<div class="radios">
-				<label class="radio"><input type="radio" name="categoryId" ${ selectedCategory == null ? 'checked' : '' }/><span>All</span></label>
+				<label class="radio"><input type="radio" name="categoryId" value="" ${ selectedCategory == null ? 'checked' : '' }/><span>All</span></label>
 				<c:forEach var="category" items="${ categories }">
 					<label class="radio">
 						<input type="radio" name="categoryId" value="${ category.id }" ${ category.id == selectedCategory ? 'checked' : '' }/>
@@ -45,29 +45,39 @@
 <script>
 	// 위 html에서 category 값이 제대로 전달되지 않아 자바스크립트로 전달
 	function sendPost(url, params) {
-		var form = document.createElement('form'); 
-		form.setAttribute('method', 'post'); 
-		form.setAttribute('target', '_self'); 
-		form.setAttribute('action', url); 
-		document.charset = "UTF-8"; 
-		
-		for (var key in params) { 
-			var hiddenField = document.createElement('input'); 
-			hiddenField.setAttribute('type', 'hidden'); 
-			hiddenField.setAttribute('name', key); 
-			hiddenField.setAttribute('value', params[key]); 
-			form.appendChild(hiddenField); 
-		} 
-		document.body.appendChild(form); 
-		form.submit(); 
+		var form = document.createElement('form');
+		form.setAttribute('method', 'post');
+		form.setAttribute('target', '_self');
+		form.setAttribute('action', url);
+		document.charset = "UTF-8";
+	
+		for (var key in params) {
+			var hiddenField = document.createElement('input');
+			hiddenField.setAttribute('type', 'hidden');
+			hiddenField.setAttribute('name', key);
+			hiddenField.setAttribute('value', params[key]);
+			form.appendChild(hiddenField);
+		}
+		document.body.appendChild(form);
+		form.submit();
 	}
 	
 	document.querySelector("button").addEventListener("click", () => {
-		sendPost("posting", {
-			categoryId: document.querySelector("input[name='categoryId']:checked").value,
-			title: document.querySelector("input[name='title']").value,
-			content: document.querySelector("textarea").value
-		});
+		const categoryId = document.querySelector("input[name='categoryId']:checked").value;
+		const title = document.querySelector("input[name='title']").value;
+		const content = document.querySelector("textarea").value;
+		
+		if(title == "")
+			alert("Enter the title");
+		else if(content == "")
+			alert("Enter the content");
+		else {
+			sendPost("posting", {
+				categoryId,
+				title,
+				content
+			});
+		}
 	});
 </script>
 

@@ -35,6 +35,14 @@ public interface PostMapper {
 			"WHERE post.id=#{postId}")
 	Post findById(int postId);
 	
+	// 게시글의 개수를 조회하는 메소드
+	@Select("SELECT COUNT(*) FROM post")
+	int countPost();
+	
+	// 해당 카테고리의 게시글의 개수를 조회하는 메소드
+	@Select("SELECT COUNT(*) FROM post WHERE categoryId=#{categoryId}")
+	int countPostByCategory(int categoryId);
+	
 	// 게시글 등록
 	@Insert("INSERT post (userId, categoryId, title, content, postedDatetime) " +
 			"VALUE (#{userId}, #{categoryId}, #{title}, #{content}, #{postedDatetime})")

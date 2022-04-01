@@ -23,6 +23,10 @@ header div {
     justify-content: space-between;
 }
 
+body {
+	text-align: center;
+}
+
 .container {
     border: 2px solid gray;
     border-top: none;

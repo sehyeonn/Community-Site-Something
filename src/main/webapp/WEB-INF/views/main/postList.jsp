@@ -62,6 +62,18 @@
     </div>
 </div>
 
+<ul class="page-numbers">
+	<c:if test="${ pageNumber > 0 }">
+		<li><a href="postList?pageNumber=${ pageNumber-1 }&categoryId=${ categoryId }">Previous</a></li>
+	</c:if>
+	<c:forEach var="i" begin="${ pageNumber/10 }" end="${ pageNumber/10 + countPost/5 }">
+		<li><a href="postList?pageNumber=${ i }&categoryId=${ categoryId }" class="${ pageNumber == i ? 'active' : '' }">${ i+1 }</a></li>
+	</c:forEach>
+	<c:if test="${ pageNumber <= countPost/5-1 }">
+		<li><a href="postList?pageNumber=${ pageNumber+1 }&categoryId=${ categoryId }">Next</a></li>
+	</c:if>
+</ul>
+
 <script>
     const posts = document.querySelectorAll(".post-list-table [data-url]");
     const categories = document.querySelectorAll(".category [data-url]");

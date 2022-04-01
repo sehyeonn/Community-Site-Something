@@ -75,3 +75,27 @@ div.search-post-div {
 .search-post input {
 	height: 23px;
 }
+
+/* page numbers */
+.page-numbers {
+	list-style: none;
+	display: inline-block;
+	text-align: center;
+	
+	padding: 0;
+}
+.page-numbers li,
+.page-numbers li a {
+	padding: 5px;
+	font-size: 19px;
+	float: left;
+}
+.page-numbers li a:link,
+.page-numbers li a:visited {
+	color: black;
+	text-decoration: none;
+}
+.page-numbers li a:hover,
+.page-numbers li a.active {
+	background-color: #eee;
+}

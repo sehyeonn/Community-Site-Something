@@ -18,6 +18,7 @@ import com.sehyeonn.community.dto.User;
 import com.sehyeonn.community.mapper.CategoryMapper;
 import com.sehyeonn.community.mapper.CommentMapper;
 import com.sehyeonn.community.mapper.PostMapper;
+import com.sehyeonn.community.utility.PageMaker;
 
 @Controller
 public class PostController {
@@ -26,29 +27,26 @@ public class PostController {
 	@Autowired CategoryMapper categoryMapper;
 	@Autowired CommentMapper commentMapper;
 	
-	final int POST_PER_PAGE = 5;
+	final int POST_PER_PAGE = 10;
 	
 	// 게시글 목록 페이지 표시
 	@RequestMapping("main/postList")	// 선택한 카테고리, 조회 중인 페이지 번호, 검색할 내용을 request parameter 로 받음
 	public String postList(Model model, Integer categoryId, Integer pageNumber, String searchText) {
-		if(pageNumber == null || pageNumber < 0) pageNumber = 0;	// 처음엔 1페이지부터 조회
+		if(pageNumber == null || pageNumber < 1) pageNumber = 1;	// 처음엔 1페이지부터 조회
 		if(searchText == null) searchText = "";
 		
 		List<Post> postList;
 		int countPost;	// 게시글 총 개수
 		
 		if(categoryId == null) {	// 처음엔 전체 게시물 목록부터 보여줌
-			postList = postMapper.findList("%"+searchText+"%", (pageNumber)*POST_PER_PAGE, POST_PER_PAGE);
+			postList = postMapper.findList("%"+searchText+"%", (pageNumber-1)*POST_PER_PAGE, POST_PER_PAGE);
 			countPost = postMapper.countPost();
 		} else {	// 이후 카테고리 선택 시 해당 카테고리의 게시글 목록을 보여줌
-			postList = postMapper.findListByCategory(categoryId, "%"+searchText+"%", (pageNumber)*POST_PER_PAGE, POST_PER_PAGE);
+			postList = postMapper.findListByCategory(categoryId, "%"+searchText+"%", (pageNumber-1)*POST_PER_PAGE, POST_PER_PAGE);
 			countPost = postMapper.countPostByCategory(categoryId);
 		}
 		
-		// 현재 페이지가 마지막 페이지면 다음 페이지 버튼을 눌러도 제자리
-		if(pageNumber > countPost/POST_PER_PAGE - 1)
-			pageNumber = countPost/POST_PER_PAGE - 1;
-		
+		model.addAttribute("pageMaker", new PageMaker(pageNumber, POST_PER_PAGE, countPost));
 		model.addAttribute("posts", postList);
 		model.addAttribute("categories", categoryMapper.findAll());
 		model.addAttribute("categoryId", categoryId);

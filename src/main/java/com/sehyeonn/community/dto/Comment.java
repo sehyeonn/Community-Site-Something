@@ -1,11 +1,13 @@
 package com.sehyeonn.community.dto;
 
+import java.util.Date;
+
 public class Comment {
 	private int id;				// NOT NULL
 	private String userId;		// Default : Unknown user
 	private int postId;			// NOT NULL
 	private String content;		// NOT NULL
-	private String postedDatetime;	// NOT NULL
+	private Date postedDatetime;	// NOT NULL
 	
 	private String username;
 	private String postTitle;
@@ -42,11 +44,11 @@ public class Comment {
 		this.content = content;
 	}
 
-	public String getPostedDatetime() {
+	public Date getPostedDatetime() {
 		return postedDatetime;
 	}
 
-	public void setPostedDatetime(String postedDatetime) {
+	public void setPostedDatetime(Date postedDatetime) {
 		this.postedDatetime = postedDatetime;
 	}
 

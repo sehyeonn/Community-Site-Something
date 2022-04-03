@@ -9,6 +9,11 @@ public class User {
 	private String username;	// NOT NULL
 	private Date signupDate;	// NOT NULL
 
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", signupDate=" + signupDate + "]";
+	}
+
 	public String getId() {
 		return id;
 	}

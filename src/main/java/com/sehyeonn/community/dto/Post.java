@@ -13,6 +13,11 @@ public class Post {
 	private int hits;		// Default : 0
 	
 	private String username;
+	
+	@Override
+	public String toString() {
+		return "Post [id=" + id + ", userId=" + userId + ", categoryId=" + categoryId + ", postedDatetime=" + postedDatetime + "]";
+	}
 
 	public int getId() {
 		return id;

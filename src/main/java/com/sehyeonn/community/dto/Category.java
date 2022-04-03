@@ -5,6 +5,11 @@ public class Category {
 	private String name;	// NOT NULL
 	private String createdDate;		//NOT NULL
 
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + ", createdDate=" + createdDate + "]";
+	}
+
 	public int getId() {
 		return id;
 	}

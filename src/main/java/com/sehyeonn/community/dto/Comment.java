@@ -12,6 +12,11 @@ public class Comment {
 	private String username;
 	private String postTitle;
 
+	@Override
+	public String toString() {
+		return "Comment [id=" + id + ", userId=" + userId + ", postId=" + postId + ", postedDatetime=" + postedDatetime + "]";
+	}
+
 	public int getId() {
 		return id;
 	}

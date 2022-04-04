@@ -2,7 +2,9 @@ package com.sehyeonn.community.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 
 import com.sehyeonn.community.dto.Comment;
@@ -19,5 +21,10 @@ public interface CommentMapper {
 			"FROM comment JOIN user ON comment.userId=user.id " +
 			"WHERE comment.postId=#{postId}")
 	List<Comment> findAllCommentsByPostId(int postId);
+	
+	@Insert("INSERT comment (userId, postId, content, postedDatetime) " +
+			"VALUE (#{userId}, #{postId}, #{content}, #{postedDatetime})")
+	@Options(useGeneratedKeys=true, keyProperty="id")
+	void insert(Comment comment);
 
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +40,7 @@
                     <li>
                         <div class="comment-info">
                             <span>${comment.username}</span>
-                            <span>${comment.postedDatetime}</span>
+                            <span><fmt:formatDate value="${ comment.postedDatetime }" pattern="yyyy-MM-dd hh:mm"/></span>
                         </div>
                         <div class="comment-content">${comment.content}</div>
                     </li>
@@ -47,13 +48,14 @@
             </ul>
         </div>
         
-        <form:form method="POST" modelAttribute="newComment">
+        <form method="POST">
         	<div>
                 <span>Post a comment</span>
-                <button type="submit">Post</button>
+                <button>Post</button>
+                <input type="hidden" name="postId" value="${ post.id }">
             </div>
-        	<form:textarea path="content"/>
-        </form:form>
+        	<textarea name="content"></textarea>
+        </form>
     </div>
 </div>
 

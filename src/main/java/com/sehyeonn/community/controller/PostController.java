@@ -73,6 +73,26 @@ public class PostController {
 		return "main/postDetail";
 	}
 	
+	@PostMapping("main/postDetail")
+	public String resistComment(Model model, Integer postId, String content, HttpSession session) {
+		String userId = ((User)session.getAttribute("user")).getId();
+		
+		// 새로운 댓글 생성
+		Comment newComment = new Comment();
+		newComment.setUserId(userId);
+		newComment.setPostId(postId);
+		newComment.setContent(content);
+		newComment.setPostedDatetime(new Date());
+		
+		commentMapper.insert(newComment);
+		System.out.println(newComment + " 댓글 DB 등록 완료");
+		
+		model.addAttribute("postId", postId);
+		model.addAttribute("content", content);
+		
+		return "redirect:postDetail?postId=" + postId;
+	}
+	
 	// 게시글 등록(작성) 페이지 표시
 	@GetMapping("main/posting")
 	public String posting(Model model, Integer categoryId) {
